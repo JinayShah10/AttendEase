@@ -217,7 +217,7 @@ const AdminHome = () => {
                             className="btn btn-sm btn-outline-primary whitespace-nowrap"
                             onClick={() => {
                               const link = document.createElement('a');
-                              const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+                              const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://attendease-backend-81j7.onrender.com';
                               link.href = `${API_BASE}/api/upload/download/${upload._id}`;
                               link.download = upload.originalFileName;
                               document.body.appendChild(link);

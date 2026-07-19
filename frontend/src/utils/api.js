@@ -3,7 +3,7 @@
  * Implements automatic token refresh on 401 responses.
  */
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://attendease-backend-81j7.onrender.com';
 
 // In-memory access token (not in localStorage for security)
 let accessToken = localStorage.getItem('djsce-token') || null;

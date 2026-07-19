@@ -173,7 +173,7 @@ const FacultyManagement = () => {
                           title="Download File"
                           onClick={() => {
                             const link = document.createElement('a');
-                            const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+                            const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://attendease-backend-81j7.onrender.com';
                             link.href = `${API_BASE}/api/upload/download/${item.id}`;
                             link.download = item.fileName;
                             document.body.appendChild(link);
@@ -305,7 +305,7 @@ const FacultyManagement = () => {
                   style={{ padding: '6px', borderRadius: '0.5rem', cursor: 'pointer', flexShrink: 0 }}
                   onClick={() => {
                     const link = document.createElement('a');
-                    const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+                    const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://attendease-backend-81j7.onrender.com';
                     link.href = `${API_BASE}/api/upload/download/${item.id}`;
                     link.download = item.fileName;
                     document.body.appendChild(link);
