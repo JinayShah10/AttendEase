@@ -1,5 +1,7 @@
 # DJSCE Attendance Portal
 
+AttendEase
+
 A modern web application for managing student attendance at Dwarkadas J. Sanghvi College of Engineering.
 
 ## Features
