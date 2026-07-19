@@ -1,0 +1,395 @@
+@import "tailwindcss";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #0d6efd;
+  --color-bg-light: #f8f9fa;
+  --color-bg-dark: #0f1117;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ================================================
+   APP-DARK CLASS — React state-driven dark mode
+   Applied to wrapper div in each dashboard.
+   All child styling is driven from here.
+   ================================================ */
+
+/* === BACKGROUNDS === */
+.app-dark { background-color: #0f1117; color: #e2e8f0; }
+
+.app-dark .card,
+.app-dark .card-body { background-color: #1a1d2e !important; border-color: #252840 !important; color: #e2e8f0 !important; }
+
+.app-dark .bg-white       { background-color: #1a1d2e !important; }
+.app-dark .bg-gray-50     { background-color: #1e2130 !important; }
+.app-dark .bg-gray-100    { background-color: #1e2130 !important; }
+
+/* === TEXT COLORS === */
+.app-dark h1,.app-dark h2,.app-dark h3,.app-dark h4,.app-dark h5,.app-dark h6 {
+  color: #f1f5f9;
+}
+.app-dark .text-gray-800  { color: #f1f5f9 !important; }
+.app-dark .text-gray-700  { color: #e2e8f0 !important; }
+.app-dark .text-gray-600  { color: #cbd5e1 !important; }
+.app-dark .text-gray-500  { color: #94a3b8 !important; }
+.app-dark .text-gray-400  { color: #64748b !important; }
+.app-dark .text-blue-600  { color: #60a5fa !important; }
+.app-dark .text-green-800 { color: #4ade80 !important; }
+.app-dark .text-green-700 { color: #4ade80 !important; }
+.app-dark .text-red-500   { color: #f87171 !important; }
+.app-dark .text-red-700   { color: #f87171 !important; }
+
+/* === BORDERS === */
+.app-dark .border-gray-100 { border-color: #252840 !important; }
+.app-dark .border-gray-200 { border-color: #252840 !important; }
+.app-dark .border-t        { border-top-color: #252840; }
+.app-dark .border-b        { border-bottom-color: #252840; }
+
+/* === TABLES === */
+.app-dark .table           { color: #cbd5e1 !important; border-color: #2d3154 !important; }
+.app-dark .table-light,
+.app-dark thead.table-light { background-color: #1e2140 !important; color: #93c5fd !important; border-color: #2d3154 !important; }
+.app-dark .table-hover tbody tr:hover { background-color: #202340 !important; }
+.app-dark .table td,
+.app-dark .table th        { border-color: #2d3154 !important; }
+.app-dark .table-bordered  { border-color: #2d3154 !important; }
+.app-dark .table-bordered td,
+.app-dark .table-bordered th { border-color: #2d3154 !important; }
+
+/* === STAT ICON CIRCLES === */
+.app-dark .bg-blue-50   { background-color: #0f2040 !important; }
+.app-dark .bg-green-50  { background-color: #052e16 !important; }
+.app-dark .bg-purple-50 { background-color: #2e1065 !important; }
+.app-dark .text-blue-600  { color: #60a5fa !important; }
+.app-dark .text-green-600 { color: #4ade80 !important; }
+.app-dark .text-purple-600{ color: #c084fc !important; }
+
+/* === BADGES === */
+.app-dark .badge.bg-blue-100 { background-color: #1e3a5f !important; color: #93c5fd !important; }
+.app-dark .bg-blue-100       { background-color: #1e3a5f !important; color: #93c5fd !important; }
+
+/* === TABLE CELL SHADING (reports) === */
+
+/* === REPORT: Generate button placeholder box === */
+.app-dark .bg-blue-50\/30 *,
+.app-dark .text-blue-800 { color: #93c5fd !important; }
+
+/* === UPLOAD DRAG AREA === */
+.app-dark .border-blue-200     { border-color: #1e3a5f !important; }
+.app-dark .bg-blue-50          { background-color: #0f2040 !important; }
+.app-dark .text-blue-800       { color: #93c5fd !important; }
+.app-dark .hover\:bg-blue-100:hover { background-color: #1a3560 !important; }
+
+/* === SUCCESS / GET-READY BOXES === */
+.app-dark .bg-green-50     { background-color: #052e16 !important; }
+.app-dark .border-green-100{ border-color: #166534 !important; }
+.app-dark .text-green-700  { color: #4ade80 !important; }
+.app-dark .bg-green-200    { background-color: #166534 !important; }
+.app-dark .text-green-800  { color: #4ade80 !important; }
+.app-dark .bg-green-100    { background-color: #166534 !important; }
+
+/* === DANGER / RED === */
+.app-dark .border-red-200  { border-color: #7f1d1d !important; }
+.app-dark .bg-red-50       { background-color: #1a0505 !important; }
+.app-dark .border-red-100  { border-color: #7f1d1d !important; }
+
+/* === FORM CONTROLS === */
+.app-dark .form-control,
+.app-dark .form-select {
+  background-color: #1e2140 !important;
+  border-color: #2d3154 !important;
+  color: #e2e8f0 !important;
+}
+.app-dark .form-control::placeholder { color: #4a5568 !important; }
+
+/* === BOOTSTRAP BUTTONS (within content) === */
+.app-dark .btn-light {
+  background-color: #1e2140 !important;
+  color: #e2e8f0 !important;
+  border-color: #2d3154 !important;
+}
+.app-dark .btn-outline-primary {
+  color: #60a5fa !important;
+  border-color: #60a5fa !important;
+}
+.app-dark .btn-outline-primary:hover {
+  background-color: #1e3a5f !important;
+  color: #93c5fd !important;
+}
+.app-dark .btn-outline-secondary {
+  color: #94a3b8 !important;
+  border-color: #4a5568 !important;
+}
+.app-dark .btn-danger {
+  background-color: #991b1b !important;
+  border-color: #7f1d1d !important;
+  color: #f1f5f9 !important;
+}
+.app-dark .btn-danger:hover {
+  background-color: #b91c1c !important;
+}
+.app-dark .btn-outline-danger {
+  color: #f87171 !important;
+  border-color: #f87171 !important;
+}
+.app-dark .btn-outline-danger:hover {
+  background-color: #7f1d1d !important;
+  color: #fca5a5 !important;
+}
+.app-dark .btn-success {
+  background-color: #166534 !important;
+  border-color: #14532d !important;
+  color: #f1f5f9 !important;
+}
+.app-dark .btn-success:hover {
+  background-color: #15803d !important;
+}
+
+/* === SETTINGS CARD HEADERS === */
+.app-dark .settings-card-header {
+  background-color: #13151f !important;
+  border-color: #1e2130 !important;
+  color: #93c5fd !important;
+}
+
+/* === FILE UPLOAD SUCCESS === */
+.app-dark .text-green-800 { color: #4ade80 !important; }
+.app-dark .border-green-200 { border-color: #166534 !important; }
+
+/* === LABEL TEXT === */
+.app-dark label            { color: #94a3b8 !important; }
+
+/* === UPLOAD ITEM ROW === */
+.app-dark .upload-item-row { background-color: #1e2140 !important; border-color: #252840 !important; }
+
+/* === SCROLLBAR === */
+.app-dark ::-webkit-scrollbar        { width: 6px; height: 6px; }
+.app-dark ::-webkit-scrollbar-track  { background: #0f1117; }
+.app-dark ::-webkit-scrollbar-thumb  { background: #2d3154; border-radius: 3px; }
+
+/* === HIDE BROWSER NATIVE PASSWORD REVEAL BUTTON === */
+/* Edge / IE */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+/* Chrome / WebKit credential autofill buttons */
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-contacts-auto-fill-button {
+  display: none !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* === ANIMATIONS === */
+.fade-in { animation: fadeIn 0.4s ease-in-out; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === AUTH PAGE BACKGROUND ANIMATIONS — uniform circular orbits === */
+@keyframes orbitA {
+  0%   { transform: translate(0px,    0px);   }
+  25%  { transform: translate(70px,  -70px);  }
+  50%  { transform: translate(0px,   -140px); }
+  75%  { transform: translate(-70px, -70px);  }
+  100% { transform: translate(0px,    0px);   }
+}
+@keyframes orbitB {
+  0%   { transform: translate(0px,    0px);  }
+  25%  { transform: translate(-60px,  60px); }
+  50%  { transform: translate(0px,   120px); }
+  75%  { transform: translate(60px,   60px); }
+  100% { transform: translate(0px,    0px);  }
+}
+@keyframes orbitC {
+  0%   { transform: translate(0px,  0px);  }
+  25%  { transform: translate(50px, 50px); }
+  50%  { transform: translate(0px, 100px); }
+  75%  { transform: translate(-50px, 50px);}
+  100% { transform: translate(0px,  0px);  }
+}
+@keyframes orbitD {
+  0%   { transform: translate(0px,    0px);   }
+  25%  { transform: translate(-80px, -40px);  }
+  50%  { transform: translate(0px,   -80px);  }
+  75%  { transform: translate(80px,  -40px);  }
+  100% { transform: translate(0px,    0px);   }
+}
+
+.auth-orb-1 { animation: orbitA 12s linear infinite; }
+.auth-orb-2 { animation: orbitB 16s linear infinite; }
+.auth-orb-3 { animation: orbitC 14s linear infinite; }
+.auth-orb-4 { animation: orbitD 18s linear infinite; }
+
+
+.auth-page-wrapper { background-color: transparent !important; }
+
+/* ── 3D Floating Form Effect ── */
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.floating-form {
+  animation: floating 6s ease-in-out infinite;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3), 
+              0 0 40px rgba(59, 130, 246, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-dark .floating-form {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 
+              0 0 50px rgba(37, 99, 235, 0.15);
+}
+
+/* ── Static Dashboard Background ── */
+.dashboard-bg {
+  background-attachment: fixed;
+  background-size: 40px 40px;
+}
+
+.dashboard-bg-light {
+  background-color: #f8f9fa;
+  background-image: radial-gradient(#dee2e6 0.5px, transparent 0.5px);
+}
+
+.dashboard-bg-dark {
+  background-color: #0f172a;
+  background-image: radial-gradient(#1e293b 1px, transparent 1px);
+}
+
+/* ── 3D Dashboard Card Effects ── */
+@keyframes floating-dashboard {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+.glass-3d-card {
+  animation: floating-dashboard 5s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.glass-3d-card:hover {
+  transform: translateY(-12px) scale(1.01);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.app-dark .glass-3d-card {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(26, 29, 46, 0.8) !important;
+  backdrop-filter: blur(8px);
+}
+
+.app-dark .glass-3d-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(37, 99, 235, 0.15);
+}
+
+/* Staggered delays */
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1.0s; }
+.delay-3 { animation-delay: 1.5s; }
+.delay-4 { animation-delay: 2.0s; }
+
+/* Custom Nav Styles */
+.nav-link.active {
+  font-weight: 600;
+  color: var(--color-primary) !important;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* ================================================
+   GLOBAL RESPONSIVE UTILITIES
+   ================================================ */
+
+/* Disable floating animation on small screens to
+   avoid layout shift / scrollbar flicker */
+@media (max-width: 640px) {
+  .glass-3d-card {
+    animation: none;
+  }
+  .floating-form {
+    animation: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* On medium+ screens keep card hover lift subtle */
+@media (min-width: 641px) {
+  .glass-3d-card:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+/* Very small phones (320 px) — shrink auth card padding */
+@media (max-width: 380px) {
+  .auth-page-wrapper .max-w-md {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+/* On ultra-wide (≥1920 px) lock sidebar and content sizes */
+@media (min-width: 1920px) {
+  .glass-3d-card:hover {
+    transform: translateY(-10px) scale(1.01);
+  }
+}
+
+/* Prevent table overflow blowing layout on xs screens */
+@media (max-width: 480px) {
+  .table-responsive {
+    font-size: 0.78rem;
+  }
+}
+
+/* Ensure TopBar title doesn't overflow */
+@media (max-width: 360px) {
+  #topbar-title {
+    font-size: 0.65rem !important;
+  }
+}
+
+/* ================================================
+   GLOBAL REPORT TABLE OVERFLOW & SCROLLING UTILITIES
+   ================================================ */
+
+.table-responsive,
+.report-table-container {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  max-height: 70vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table thead,
+.report-table-container table thead,
+#attendance-report-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: var(--color-bg-light, #f8f9fa);
+}
+
+.app-dark .table-responsive table thead,
+.app-dark .report-table-container table thead,
+.app-dark #attendance-report-table thead {
+  background-color: #112240 !important;
+}
+
+.table-responsive table th,
+.table-responsive table td,
+.report-table-container table th,
+.report-table-container table td,
+#attendance-report-table th,
+#attendance-report-table td {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}

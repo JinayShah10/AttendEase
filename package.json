@@ -1,0 +1,37 @@
+{
+  "name": "djsce-attendance-portal",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "server": "node backend/server.js",
+    "build": "npm run build --prefix frontend",
+    "lint": "npm run lint --prefix frontend",
+    "preview": "npm run preview --prefix frontend",
+    "start": "nodemon backend/server.js",
+    "seed": "node backend/seed.js",
+    "reset": "node backend/resetDatabase.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.7",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.0",
+    "express-validator": "^7.3.2",
+    "file-type": "^22.0.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.4.1",
+    "multer": "^2.1.1",
+    "nodemon": "^3.1.14",
+    "sanitize-filename": "^1.6.4",
+    "uuid": "^14.0.0"
+  }
+}
