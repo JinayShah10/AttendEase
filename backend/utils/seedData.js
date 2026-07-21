@@ -35,8 +35,8 @@ export const subjects = [
   // SY HONOURS SUBJECTS
   // ==========================================
   { name: 'FMRA', shortName: 'FMRA', code: 'DJS23DHI201', fullName: 'Financial Market and Risk Analysis', category: 'Honours', type: 'Theory', isOE: false, year: 'SY', active: true },
-  { name: 'CMPM', shortName: 'CMPM', code: 'DJS23DHI251', fullName: 'Computational Methods and Pricing Models', category: 'Honours', type: 'Theory', isOE: false, year: 'SY', active: true },
-  { name: 'CMPM Lab', shortName: 'CMPM Lab', code: 'DJS23DHI251L', fullName: 'Computational Methods and Pricing Models Laboratory', category: 'Honours', type: 'Lab', isOE: false, year: 'SY', active: true },
+  { name: 'CMPM', shortName: 'CMPM', code: 'DJS23DH1251', fullName: 'Computational Methods and Pricing Models', category: 'Honours', type: 'Theory', isOE: false, year: 'SY', active: true },
+  { name: 'CMPM Lab', shortName: 'CMPM Lab', code: 'DJS23DH1251L', fullName: 'Computational Methods and Pricing Models Laboratory', category: 'Honours', type: 'Lab', isOE: false, year: 'SY', active: true },
 
   // ==========================================
   // TY CORE & ELECTIVE SUBJECTS
