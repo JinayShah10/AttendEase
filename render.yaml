@@ -1,0 +1,9 @@
+services:
+  - type: static
+    name: attend-ease-frontend
+    buildCommand: npm run build --prefix frontend
+    staticPublishPath: ./frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
