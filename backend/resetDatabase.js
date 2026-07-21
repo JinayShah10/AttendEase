@@ -12,7 +12,104 @@ import UploadedFile from './models/UploadedFile.js';
 import AuditLog from './models/AuditLog.js';
 import RefreshToken from './models/RefreshToken.js';
 
-export async function performDatabaseReset() {
+export async function performDatabaseReset(assignedClass = null) {
+  if (assignedClass && (assignedClass.year || assignedClass.name) && assignedClass.division) {
+    const year = assignedClass.year || (assignedClass.name ? assignedClass.name.split(' ')[0] : '');
+    const div = assignedClass.division;
+    const yearMatches = [year, assignedClass.name].filter(Boolean);
+
+    // 1a. AttendanceRecords for this specific class only (NOT 'ALL' division uploads)
+    const arQuery = {
+      classYear: { $in: yearMatches },
+      division: div
+    };
+    const arCount = await AttendanceRecord.countDocuments(arQuery);
+    await AttendanceRecord.deleteMany(arQuery);
+
+    // 1b. UploadedFiles for this specific class only
+    const ufQuery = {
+      classYear: { $in: yearMatches },
+      division: div
+    };
+    const filesToDelete = await UploadedFile.find(ufQuery).select('storedFilePath');
+    const ufCount = await UploadedFile.countDocuments(ufQuery);
+    await UploadedFile.deleteMany(ufQuery);
+
+    // Clean Supabase Storage files for the deleted UploadedFiles
+    const SUPABASE_URL = process.env.SUPABASE_URL;
+    const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
+    const BUCKET_NAME = process.env.SUPABASE_STORAGE_BUCKET || 'reports';
+    let deletedFilesCount = 0;
+
+    if (SUPABASE_URL && SUPABASE_KEY && filesToDelete.length > 0) {
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+        auth: { persistSession: false }
+      });
+      const filePaths = filesToDelete
+        .map(f => f.storedFilePath)
+        .filter(p => p && p.trim() !== '');
+
+      if (filePaths.length > 0) {
+        const { error: removeError } = await supabase.storage
+          .from(BUCKET_NAME)
+          .remove(filePaths);
+
+        if (!removeError) {
+          deletedFilesCount = filePaths.length;
+        } else {
+          console.error('Error deleting class files from Supabase Storage:', removeError);
+        }
+      }
+    }
+
+    // 1c. Drop dynamic student collection for this class (e.g. SY_D1_2026-27)
+    const collections = await mongoose.connection.db.listCollections().toArray();
+    const classColPattern = new RegExp(`^${year}_${div}_\\d{4}-\\d{2}$`, 'i');
+    const targetCols = collections
+      .map(c => c.name)
+      .filter(name => classColPattern.test(name));
+
+    let studentColsCount = 0;
+    for (const colName of targetCols) {
+      try {
+        await mongoose.connection.db.dropCollection(colName);
+        studentColsCount++;
+      } catch (err) {
+        console.error(`Error dropping student collection ${colName}:`, err);
+      }
+    }
+
+    // 1d. Delete dynamic student class data folders on disk recursively for this class
+    const uploadsDir = path.join(process.cwd(), 'backend', 'uploads');
+    if (fs.existsSync(uploadsDir)) {
+      try {
+        const items = fs.readdirSync(uploadsDir);
+        for (const item of items) {
+          const itemPath = path.join(uploadsDir, item);
+          if (fs.existsSync(itemPath) && fs.statSync(itemPath).isDirectory()) {
+            if (classColPattern.test(item)) {
+              fs.rmSync(itemPath, { recursive: true, force: true });
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Error deleting class student data folders on disk:', err);
+      }
+    }
+
+    // 2. Ensure default master data and subjects are properly seeded
+    await seedDatabase(false);
+
+    return {
+      arCount,
+      ufCount,
+      alCount: 0,
+      rtCount: 0,
+      deletedFilesCount,
+      studentColsCount
+    };
+  }
+
   // 1. Clear database documents for uploaded files, attendance, audit logs, and tokens
   const arCount = await AttendanceRecord.countDocuments();
   await AttendanceRecord.deleteMany({});

@@ -370,36 +370,21 @@ export const resetDatabaseApi = async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    // Perform database reset
-    const summary = await performDatabaseReset();
-
-    // Clean assigned admin class folder on disk if present
-    if (admin.assignedClass && admin.assignedClass.year && admin.assignedClass.division) {
-      try {
-        const currentYear = new Date().getFullYear();
-        const academicSession = `${currentYear}-${(currentYear + 1).toString().slice(-2)}`;
-        const targetFolder = `${admin.assignedClass.year}_${admin.assignedClass.division}_${academicSession}`;
-        const targetPath = path.join(process.cwd(), 'backend', 'uploads', targetFolder);
-        if (fs.existsSync(targetPath)) {
-          fs.rmSync(targetPath, { recursive: true, force: true });
-        }
-      } catch (err) {
-        console.error('Error removing assigned admin class folder:', err);
-      }
-    }
+    // Perform database reset scoped to the authenticated admin's assigned class
+    const summary = await performDatabaseReset(admin.assignedClass);
 
     // Audit Log
     await logAction(req, 'RESET_DATABASE', {
       userId: admin._id,
       userEmail: admin.email,
-      message: `Database Reset completed: Cleared ${summary.arCount} attendance records, ${summary.ufCount} uploaded files, ${summary.alCount} audit logs, ${summary.rtCount} refresh tokens, and ${summary.studentColsCount || 0} dynamic student collections.`,
+      message: `Database Reset completed: Cleared ${summary.arCount} attendance records, ${summary.ufCount} uploaded files, and ${summary.studentColsCount || 0} dynamic student collection(s).`,
       targetCollection: 'multiple',
       recordCount: summary.arCount + summary.ufCount
     });
 
     return res.status(200).json({ 
       success: true, 
-      message: 'Database reset completed successfully. All dynamic student collections were cleared and user accounts were preserved.' 
+      message: 'Database reset completed successfully. Dynamic student collections for the assigned class were cleared and user accounts were preserved.' 
     });
   } catch (error) {
     return serverError(res, error, 'Error resetting database');
