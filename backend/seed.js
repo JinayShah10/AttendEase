@@ -12,9 +12,20 @@ export async function seedDatabase(force = false) {
     // 1. Seed Subjects (Idempotent Upsert)
     console.log('Ensuring default master subjects...');
     await Subject.deleteMany({
-      name: { $in: ['Advanced Java', 'DevOps', 'Advanced DBMS'] }
+      $or: [
+        { category: { $in: ['OE', 'DE', 'PE', 'Open Elective', 'Department Elective', 'Program Elective'] } },
+        { electiveCategory: { $in: ['OE', 'DE', 'PE', 'DEPARTMENT_ELECTIVE', 'PROGRAM_ELECTIVE'] } },
+        { isOE: true }
+      ]
     });
-    for (const sub of subjects) {
+
+    const normalSubjects = subjects.filter(sub =>
+      !['OE', 'DE', 'PE', 'Open Elective', 'Department Elective', 'Program Elective'].includes(sub.category) &&
+      !['OE', 'DE', 'PE', 'DEPARTMENT_ELECTIVE', 'PROGRAM_ELECTIVE'].includes(sub.electiveCategory) &&
+      !sub.isOE
+    );
+
+    for (const sub of normalSubjects) {
       await Subject.findOneAndUpdate(
         { name: sub.name },
         { $set: sub },
