@@ -42,24 +42,24 @@ export const subjects = [
   // TY CORE & ELECTIVE SUBJECTS
   // ==========================================
   // Semester V Core
-  { name: 'ML-II', shortName: 'ML-II', code: 'DJS23DPC301', fullName: 'Machine Learning - II', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
-  { name: 'ML-II Lab', shortName: 'ML-II Lab', code: 'DJS23DPC301L', fullName: 'Machine Learning - II Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
-  { name: 'DAA', shortName: 'DAA', code: 'DJS23DPC302', fullName: 'Design and Analysis of Algorithms', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
-  { name: 'DAA Lab', shortName: 'DAA Lab', code: 'DJS23DPC302L', fullName: 'Design and Analysis of Algorithms Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
-  { name: 'IS', shortName: 'IS', code: 'DJS23DPC303', fullName: 'Information Security', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
-  { name: 'IS Lab', shortName: 'IS Lab', code: 'DJS23DPC303L', fullName: 'Information Security Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
-  { name: 'CCN', shortName: 'CCN', code: 'DJS23DPC304', fullName: 'Computer Communication Networks', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
-  { name: 'CCN Lab', shortName: 'CCN Lab', code: 'DJS23DPC304L', fullName: 'Computer Communication Networks Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'ML-II', shortName: 'ML-II', code: 'DJS23DCPC501', fullName: 'Machine Learning - II', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'ML-II Lab', shortName: 'ML-II Lab', code: 'DJS23DLPC501', fullName: 'Machine Learning - II Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'DAA', shortName: 'DAA', code: 'DJS23DCPC502', fullName: 'Design and Analysis of Algorithms', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'DAA Lab', shortName: 'DAA Lab', code: 'DJS23DLPC502', fullName: 'Design and Analysis of Algorithms Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'IS', shortName: 'IS', code: 'DJS23DCPC503', fullName: 'Intelligent Systems', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'IS Lab', shortName: 'IS Lab', code: 'DJS23DLPC503', fullName: 'Intelligent Systems Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'CCN', shortName: 'CCN', code: 'DJS23DCMD501', fullName: 'Computer Communication Networks', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'CCN Lab', shortName: 'CCN Lab', code: 'DJS23DLMD501', fullName: 'Computer Communication Networks Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
 
   // Semester V Program Electives (isOE: false, electiveCategory: 'DEPARTMENT_ELECTIVE')
-  { name: 'RS', shortName: 'RS', code: 'DJS23DPE301A', fullName: 'Recommender Systems', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
-  { name: 'RS Lab', shortName: 'RS Lab', code: 'DJS23DPE301AL', fullName: 'Recommender Systems Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
-  { name: 'SC', shortName: 'SC', code: 'DJS23DPE301B', fullName: 'Soft Computing', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
-  { name: 'SC Lab', shortName: 'SC Lab', code: 'DJS23DPE301BL', fullName: 'Soft Computing Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
-  { name: 'SNA', shortName: 'SNA', code: 'DJS23DPE301C', fullName: 'Social Network Analysis', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
-  { name: 'SNA Lab', shortName: 'SNA Lab', code: 'DJS23DPE301CL', fullName: 'Social Network Analysis Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
-  { name: 'CCS', shortName: 'CCS', code: 'DJS23DPE301D', fullName: 'Cloud Computing and Security', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
-  { name: 'CCS Lab', shortName: 'CCS Lab', code: 'DJS23DPE301DL', fullName: 'Cloud Computing and Security Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'RS', shortName: 'RS', code: 'DJS23DCPE511', fullName: 'Recommender Systems', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'RS Lab', shortName: 'RS Lab', code: 'DJS23DLPE511', fullName: 'Recommender Systems Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'SC', shortName: 'SC', code: 'DJS23DCPE512', fullName: 'Soft Computing', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'SC Lab', shortName: 'SC Lab', code: 'DJS23DLPE512', fullName: 'Soft Computing Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'SNA', shortName: 'SNA', code: 'DJS23DCPE513', fullName: 'Social Network Analysis', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'SNA Lab', shortName: 'SNA Lab', code: 'DJS23DLPE513', fullName: 'Social Network Analysis Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'CCS', shortName: 'CCS', code: 'DJS23DCPE514', fullName: 'Cloud Computing and Security', category: 'Department Elective', type: 'Theory', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
+  { name: 'CCS Lab', shortName: 'CCS Lab', code: 'DJS23DLPE514', fullName: 'Cloud Computing and Security Laboratory', category: 'Department Elective', type: 'Lab', isOE: false, year: 'TY', electiveCategory: 'DEPARTMENT_ELECTIVE', active: true },
 
   // Semester V Open Lab Electives (isOE: true, electiveCategory: 'OE')
   { name: 'DOPS', shortName: 'DOPS', code: 'DJS23DOL301', fullName: 'DevOps Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true },
@@ -67,23 +67,23 @@ export const subjects = [
   { name: 'ADB', shortName: 'ADB', code: 'DJS23DOL303', fullName: 'Advanced Database Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true },
 
   // Semester V HSS
-  { name: 'COI', shortName: 'COI', code: 'DJS23MC301', fullName: 'Constitution of India', category: 'HSS', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'COI', shortName: 'COI', code: 'DJS23ICHSX09', fullName: 'Constitution of India', category: 'HSS', type: 'Theory', isOE: false, year: 'TY', active: true },
 
   // Semester VI Core
-  { name: 'ML-III', shortName: 'ML-III', code: 'DJS23DPC351', fullName: 'Machine Learning - III', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
-  { name: 'ML-III Lab', shortName: 'ML-III Lab', code: 'DJS23DPC351L', fullName: 'Machine Learning - III Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
-  { name: 'NLP', shortName: 'NLP', code: 'DJS23DPC352', fullName: 'Natural Language Processing', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
-  { name: 'NLP Lab', shortName: 'NLP Lab', code: 'DJS23DPC352L', fullName: 'Natural Language Processing Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
-  { name: 'AS Lab', shortName: 'AS Lab', code: 'DJS23DPC353L', fullName: 'Applied Statistics Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'ML-III', shortName: 'ML-III', code: 'DJS23DCPC601', fullName: 'Machine Learning - III', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'ML-III Lab', shortName: 'ML-III Lab', code: 'DJS23DLPC601', fullName: 'Machine Learning - III Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'NLP', shortName: 'NLP', code: 'DJS23DCPC602', fullName: 'Natural Language Processing', category: 'Core', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'NLP Lab', shortName: 'NLP Lab', code: 'DJS23DLPC602', fullName: 'Natural Language Processing Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'AS Lab', shortName: 'AS Lab', code: 'DJS23DLPC603', fullName: 'Advanced Statistics Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'TY', active: true },
 
   // NOTE: Semester VI Program Electives are NOT seeded here.
   //       They live in the TY_PE collection, seeded via tyProgramElectives below.
 
   // Semester VI Core Lab
-  { name: 'ADSE Lab', shortName: 'ADSE Lab', code: 'DJS23DEL351', fullName: 'Agile Software Development Engineering Laboratory', category: 'Core Lab', type: 'Lab', isOE: false, year: 'TY', active: true },
+  { name: 'ADSE Lab', shortName: 'ADSE Lab', code: 'DJS23DLMD601', fullName: 'Applied Data Science Engineering Laboratory', category: 'Core Lab', type: 'Lab', isOE: false, year: 'TY', active: true },
 
   // Semester VI HSS
-  { name: 'EVS', shortName: 'EVS', code: 'DJS23MC351', fullName: 'Environmental Studies', category: 'HSS', type: 'Theory', isOE: false, year: 'TY', active: true },
+  { name: 'EVS', shortName: 'EVS', code: 'DJS23ICHSX10', fullName: 'Environmental Studies', category: 'HSS', type: 'Theory', isOE: false, year: 'TY', active: true },
 
   // ==========================================
   // TY HONOURS SUBJECTS
@@ -127,9 +127,9 @@ export const oeSubjects = [
   // ==========================================
   // TY OPEN ELECTIVES
   // ==========================================
-  { name: 'ADJ', shortName: 'ADJ', code: 'DJS23DOL302', fullName: 'Advanced Java Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true },
-  { name: 'DOPS', shortName: 'DOPS', code: 'DJS23DOL301', fullName: 'DevOps Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true },
-  { name: 'ADB', shortName: 'ADB', code: 'DJS23DOL303', fullName: 'Advanced Database Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true }
+  { name: 'ADJ', shortName: 'ADJ', code: 'DJS23OLOE502', fullName: 'Advanced Java Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true },
+  { name: 'DOPS', shortName: 'DOPS', code: 'DJS23OLOE501', fullName: 'DevOps Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true },
+  { name: 'ADB', shortName: 'ADB', code: 'DJS23OLOE503', fullName: 'Advanced Database Laboratory', category: 'Open Elective', type: 'Lab', isOE: true, year: 'TY', electiveCategory: 'OE', active: true }
 ];
 
 // ==========================================
@@ -139,26 +139,26 @@ export const oeSubjects = [
 // ==========================================
 export const tyProgramElectives = [
   // SET 1 THEORY
-  { set: 'SET1', subjectName: 'TSA', type: 'THEORY', pairKey: 'TSA', code: 'DJS23DPE351A', fullName: 'Time Series Analysis', active: true },
-  { set: 'SET1', subjectName: 'AAI', type: 'THEORY', pairKey: 'AAI', code: 'DJS23DPE351B', fullName: 'Applied Artificial Intelligence', active: true },
-  { set: 'SET1', subjectName: 'MII', type: 'THEORY', pairKey: 'MII', code: 'DJS23DPE351C', fullName: 'Medical Imaging and Informatics', active: true },
-  { set: 'SET1', subjectName: 'EHDF', type: 'THEORY', pairKey: 'EHDF', code: 'DJS23DPE351D', fullName: 'Ethical Hacking and Digital Forensics', active: true },
+  { set: 'SET1', subjectName: 'TSA', type: 'THEORY', pairKey: 'TSA', code: 'DJS23DCPE611', fullName: 'Time Series Analysis', active: true },
+  { set: 'SET1', subjectName: 'AAI', type: 'THEORY', pairKey: 'AAI', code: 'DJS23DCPE612', fullName: 'Analysis of AI Algorithms', active: true },
+  { set: 'SET1', subjectName: 'MII', type: 'THEORY', pairKey: 'MII', code: 'DJS23DCPE613', fullName: 'Medical Imaging and Informatics', active: true },
+  { set: 'SET1', subjectName: 'EHDF', type: 'THEORY', pairKey: 'EHDF', code: 'DJS23DCPE614', fullName: 'Ethical Hacking and Digital Forensics', active: true },
 
   // SET 1 LAB
-  { set: 'SET1', subjectName: 'TSA Lab', type: 'LAB', pairKey: 'TSA', code: 'DJS23DPE351AL', fullName: 'Time Series Analysis Laboratory', active: true },
-  { set: 'SET1', subjectName: 'AAI Lab', type: 'LAB', pairKey: 'AAI', code: 'DJS23DPE351BL', fullName: 'Applied Artificial Intelligence Laboratory', active: true },
-  { set: 'SET1', subjectName: 'MII Lab', type: 'LAB', pairKey: 'MII', code: 'DJS23DPE351CL', fullName: 'Medical Imaging and Informatics Laboratory', active: true },
-  { set: 'SET1', subjectName: 'EHDF Lab', type: 'LAB', pairKey: 'EHDF', code: 'DJS23DPE351DL', fullName: 'Ethical Hacking and Digital Forensics Laboratory', active: true },
+  { set: 'SET1', subjectName: 'TSA Lab', type: 'LAB', pairKey: 'TSA', code: 'DJS23DLPE611', fullName: 'Time Series Analysis Laboratory', active: true },
+  { set: 'SET1', subjectName: 'AAI Lab', type: 'LAB', pairKey: 'AAI', code: 'DJS23DLPE612', fullName: 'Analysis of AI Algorithms Laboratory', active: true },
+  { set: 'SET1', subjectName: 'MII Lab', type: 'LAB', pairKey: 'MII', code: 'DJS23DLPE613', fullName: 'Medical Imaging and Informatics Laboratory', active: true },
+  { set: 'SET1', subjectName: 'EHDF Lab', type: 'LAB', pairKey: 'EHDF', code: 'DJS23DLPE614', fullName: 'Ethical Hacking and Digital Forensics Laboratory', active: true },
 
   // SET 2 THEORY
-  { set: 'SET2', subjectName: 'CV', type: 'THEORY', pairKey: 'CV', code: 'DJS23DPE352A', fullName: 'Computer Vision', active: true },
-  { set: 'SET2', subjectName: 'RAI', type: 'THEORY', pairKey: 'RAI', code: 'DJS23DPE352B', fullName: 'Robotics and Artificial Intelligence', active: true },
-  { set: 'SET2', subjectName: 'AGT', type: 'THEORY', pairKey: 'AGT', code: 'DJS23DPE352C', fullName: 'Algorithmic Game Theory', active: true },
-  { set: 'SET2', subjectName: 'IS', type: 'THEORY', pairKey: 'IS', code: 'DJS23DPE352D', fullName: 'Information Security (PE)', active: true },
+  { set: 'SET2', subjectName: 'CV', type: 'THEORY', pairKey: 'CV', code: 'DJS23DCPE616', fullName: 'Computer Vision', active: true },
+  { set: 'SET2', subjectName: 'RAI', type: 'THEORY', pairKey: 'RAI', code: 'DJS23DCPE617', fullName: 'Robotics and Artificial Intelligence', active: true },
+  { set: 'SET2', subjectName: 'AGT', type: 'THEORY', pairKey: 'AGT', code: 'DJS23DCPE618', fullName: 'Applied Game Theory', active: true },
+  { set: 'SET2', subjectName: 'ISec', type: 'THEORY', pairKey: 'IS', code: 'DJS23DCPE619', fullName: 'Information Security (PE)', active: true },
 
   // SET 2 LAB
-  { set: 'SET2', subjectName: 'CV Lab', type: 'LAB', pairKey: 'CV', code: 'DJS23DPE352AL', fullName: 'Computer Vision Laboratory', active: true },
-  { set: 'SET2', subjectName: 'RAI Lab', type: 'LAB', pairKey: 'RAI', code: 'DJS23DPE352BL', fullName: 'Robotics and Artificial Intelligence Laboratory', active: true },
-  { set: 'SET2', subjectName: 'AGT Lab', type: 'LAB', pairKey: 'AGT', code: 'DJS23DPE352CL', fullName: 'Algorithmic Game Theory Laboratory', active: true },
-  { set: 'SET2', subjectName: 'IS Lab', type: 'LAB', pairKey: 'IS', code: 'DJS23DPE352DL', fullName: 'Information Security Laboratory (PE)', active: true }
+  { set: 'SET2', subjectName: 'CV Lab', type: 'LAB', pairKey: 'CV', code: 'DJS23DLPE616', fullName: 'Computer Vision Laboratory', active: true },
+  { set: 'SET2', subjectName: 'RAI Lab', type: 'LAB', pairKey: 'RAI', code: 'DJS23DLPE617', fullName: 'Robotics and Artificial Intelligence Laboratory', active: true },
+  { set: 'SET2', subjectName: 'AGT Lab', type: 'LAB', pairKey: 'AGT', code: 'DJS23DLPE618', fullName: 'Applied Game Theory Laboratory', active: true },
+  { set: 'SET2', subjectName: 'ISec Lab', type: 'LAB', pairKey: 'IS', code: 'DJS23DLPE619', fullName: 'Information Security Laboratory (PE)', active: true }
 ];

@@ -13,7 +13,7 @@ export async function seedDatabase(force = false) {
     console.log('Ensuring default master subjects...');
     await Subject.deleteMany({
       $or: [
-        { name: { $in: ['CES', 'IPD-I', 'IPD-II', 'IPD-1', 'IPD-2'] } },
+        { name: { $in: ['CES', 'IPD-I', 'IPD-II', 'IPD-1', 'IPD-2', 'IPD-III', 'IPD-IV', 'IPD-3', 'IPD-4', 'Innovative Product Development III', 'Innovative Product Development IV'] } },
         { category: { $in: ['OE', 'DE', 'PE', 'Open Elective', 'Department Elective', 'Program Elective'] } },
         { electiveCategory: { $in: ['OE', 'DE', 'PE', 'DEPARTMENT_ELECTIVE', 'PROGRAM_ELECTIVE'] } },
         { isOE: true }
@@ -94,11 +94,12 @@ export async function seedDatabase(force = false) {
     // Rebuild current schema indexes
     await ProgramElective.syncIndexes();
 
-    // Delete legacy entries having 'theory' or 'lab' fields before seeding the new structure
+    // Delete legacy entries having 'theory' or 'lab' fields or legacy subjectNames before seeding
     const deleteResult = await ProgramElective.deleteMany({
       $or: [
         { theory: { $exists: true } },
-        { lab: { $exists: true } }
+        { lab: { $exists: true } },
+        { subjectName: { $in: ['IS', 'IS Lab'] } }
       ]
     });
     if (deleteResult.deletedCount > 0) {
