@@ -6,6 +6,7 @@ export const subjects = [
   { name: 'CSF Lab', shortName: 'CSF Lab', code: 'DJS23DPC201L', fullName: 'Computer System Fundamentals Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'SY', active: true },
   { name: 'DBMS', shortName: 'DBMS', code: 'DJS23DPC202', fullName: 'Database Systems', category: 'Core', type: 'Theory', isOE: false, year: 'SY', active: true },
   { name: 'DBMS Lab', shortName: 'DBMS Lab', code: 'DJS23DPC202L', fullName: 'Database Systems Laboratory', category: 'Core', type: 'Lab', isOE: false, year: 'SY', active: true },
+  { name: 'Python Theory', shortName: 'Python Lab', code: 'DJS23DPC203L', fullName: 'Data Science Laboratory (Python)', category: 'Core', type: 'Theory', isOE: false, year: 'SY', active: true },
   { name: 'Python Lab', shortName: 'Python Lab', code: 'DJS23DPC203L', fullName: 'Data Science Laboratory (Python)', category: 'Core', type: 'Lab', isOE: false, year: 'SY', active: true },
   { name: 'MIS', shortName: 'MIS', code: 'DJS23DMD201', fullName: 'Mathematics for Intelligent Systems', category: 'Core', type: 'Theory', isOE: false, year: 'SY', active: true },
   { name: 'DS', shortName: 'DS', code: 'DJS23DPC251', fullName: 'Data Structures', category: 'Core', type: 'Theory', isOE: false, year: 'SY', active: true },
@@ -28,9 +29,7 @@ export const subjects = [
   // ==========================================
   // SY SKILL / VALUE ADDED SUBJECTS
   // ==========================================
-  { name: 'CES', shortName: 'CES', code: 'DJS23XEL201L', fullName: 'Community Engagement Service', category: 'Value Added', type: 'Practical', isOE: false, year: 'SY', active: true },
-  { name: 'IPD-I', shortName: 'IPD-I', code: 'DJS23XSC201P', fullName: 'Innovative Product Development I', category: 'Skill Course', type: 'Practical', isOE: false, year: 'SY', active: true },
-  { name: 'IPD-II', shortName: 'IPD-II', code: 'DJS23XSC251P', fullName: 'Innovative Product Development II', category: 'Skill Course', type: 'Practical', isOE: false, year: 'SY', active: true },
+
 
   // ==========================================
   // SY HONOURS SUBJECTS

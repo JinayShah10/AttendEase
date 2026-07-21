@@ -13,6 +13,7 @@ export async function seedDatabase(force = false) {
     console.log('Ensuring default master subjects...');
     await Subject.deleteMany({
       $or: [
+        { name: { $in: ['CES', 'IPD-I', 'IPD-II', 'IPD-1', 'IPD-2'] } },
         { category: { $in: ['OE', 'DE', 'PE', 'Open Elective', 'Department Elective', 'Program Elective'] } },
         { electiveCategory: { $in: ['OE', 'DE', 'PE', 'DEPARTMENT_ELECTIVE', 'PROGRAM_ELECTIVE'] } },
         { isOE: true }
