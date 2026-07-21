@@ -50,8 +50,8 @@ async function generateRefreshToken(user) {
 function setRefreshCookie(res, token) {
   res.cookie('refreshToken', token, {
     httpOnly: true,       // Not accessible via JavaScript
-    secure: process.env.NODE_ENV === 'production', // HTTPS only in production
-    sameSite: 'strict',   // CSRF protection
+    secure: true,         // HTTPS only
+    sameSite: 'none',     // CSRF protection for cross-site
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in ms
     path: '/api/auth'     // Only sent to auth routes
   });

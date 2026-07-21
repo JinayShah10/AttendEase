@@ -45,7 +45,7 @@ export function getAccessToken() {
  * Attempts to refresh the access token using the httpOnly refresh cookie.
  * Returns the new access token or null if refresh failed.
  */
-async function attemptTokenRefresh() {
+export async function attemptTokenRefresh() {
   try {
     const res = await fetch(`${API_BASE}/api/auth/refresh`, {
       method: 'POST',

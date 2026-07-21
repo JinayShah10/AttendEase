@@ -1,32 +1,64 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import { loginUser, logoutUser, setAccessToken } from './utils/api';
+import { loginUser, logoutUser, setAccessToken, attemptTokenRefresh } from './utils/api';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => {
-    const token = localStorage.getItem('djsce-token');
-    const savedUser = localStorage.getItem('djsce-auth-session');
-    
-    if (token) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Initialize auth state: check token validity, fallback to silent refresh if needed
+  useEffect(() => {
+    const initializeAuth = async () => {
+      const token = localStorage.getItem('djsce-token');
+      const savedUser = localStorage.getItem('djsce-auth-session');
+
+      if (token) {
+        try {
+          const { exp } = jwtDecode(token);
+          if (Date.now() < exp * 1000) {
+            if (savedUser) {
+              setUser(JSON.parse(savedUser));
+            }
+            setLoading(false);
+            return;
+          }
+        } catch {
+          // Token is invalid/malformed, proceed to refresh
+        }
+      }
+
+      // Try silent refresh
       try {
-        const { exp } = jwtDecode(token);
-        if (Date.now() >= exp * 1000) {
+        const refreshedToken = await attemptTokenRefresh();
+        if (refreshedToken) {
+          const updatedUser = localStorage.getItem('djsce-auth-session');
+          if (updatedUser) {
+            setUser(JSON.parse(updatedUser));
+          } else {
+            const decoded = jwtDecode(refreshedToken);
+            setUser({ id: decoded.id, role: decoded.role });
+          }
+        } else {
+          setUser(null);
+          setAccessToken(null);
           localStorage.removeItem('djsce-auth-session');
           localStorage.removeItem('djsce-token');
-          return null;
         }
       } catch {
+        setUser(null);
+        setAccessToken(null);
         localStorage.removeItem('djsce-auth-session');
         localStorage.removeItem('djsce-token');
-        return null;
+      } finally {
+        setLoading(false);
       }
-    }
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
-  const [loading] = useState(false);
+    };
+
+    initializeAuth();
+  }, []);
 
   const logout = useCallback(async () => {
     try {
