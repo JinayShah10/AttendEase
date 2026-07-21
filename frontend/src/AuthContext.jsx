@@ -99,7 +99,6 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
-    checkToken();
     // Check every minute
     const interval = setInterval(checkToken, 60000);
     return () => clearInterval(interval);
