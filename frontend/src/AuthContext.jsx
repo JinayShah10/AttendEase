@@ -75,16 +75,26 @@ export const AuthProvider = ({ children }) => {
 
   // Periodic check for token expiration
   useEffect(() => {
-    const checkToken = () => {
+    if (loading) return;
+
+    const checkToken = async () => {
       const token = localStorage.getItem('djsce-token');
       if (token) {
         try {
           const { exp } = jwtDecode(token);
           if (Date.now() >= exp * 1000) {
-            logout();
+            const refreshedToken = await attemptTokenRefresh();
+            if (refreshedToken) {
+              const updatedUser = localStorage.getItem('djsce-auth-session');
+              if (updatedUser) {
+                setUser(JSON.parse(updatedUser));
+              }
+            } else {
+              window.dispatchEvent(new Event('auth:session-expired'));
+            }
           }
         } catch {
-          logout();
+          window.dispatchEvent(new Event('auth:session-expired'));
         }
       }
     };
@@ -93,7 +103,7 @@ export const AuthProvider = ({ children }) => {
     // Check every minute
     const interval = setInterval(checkToken, 60000);
     return () => clearInterval(interval);
-  }, [logout]);
+  }, [loading]);
 
   const login = async (email, password, role) => {
     try {
